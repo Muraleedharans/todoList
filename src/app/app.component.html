@@ -3,13 +3,15 @@
     <h1>Basic ToDo List</h1>
     <input type="text" id="todo" placeholder="what needs to be done?" (keyup.enter)="getList(name.value)"  #name/>
     <br><br>
-      <div id="list" *ngFor="let item of list">
+    <div id="list">
+      <div  *ngFor="let item of list">
         <div class="taskList" (mouseover)="hideElement = false"(mouseleave)="hideElement = true">
         <input type="checkbox" id="checkbox"/>
         {{item.task}}
         <button id="remove" (click)="removeTask(item.id)" [hidden]="hideElement">x</button>
         </div>
-      <p [hidden]="count">{{list.length}} items left</p>
     </div>
+    <p [hidden]="count">{{list.length}} items left</p>
+  </div>
   </body>
 </html>
