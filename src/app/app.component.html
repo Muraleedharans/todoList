@@ -1,17 +1,32 @@
 <html>
   <body>
-    <h1>Basic ToDo List</h1>
-    <input type="text" id="todo" placeholder="what needs to be done?" (keyup.enter)="getList(name.value)"  #name/>
-    <br><br>
-    <div id="list">
-      <div  *ngFor="let item of list">
-        <div class="taskList" (mouseover)="hideElement = false"(mouseleave)="hideElement = true">
-        <input type="checkbox" id="checkbox"/>
-        {{item.task}}
-        <button id="remove" (click)="removeTask(item.id)" [hidden]="hideElement">x</button>
-        </div>
+    <section class="header">
+    <h1 class="title">Basic ToDo List</h1>
+    </section>
+    <div class="box">
+      <h2 class="addTask">Add task</h2>
+      <br>
+      <input type="text" id="todo" placeholder="what needs to be done?" (keyup.enter)="getList(name.value)"  #name/>
+      <button class="button" (click)="getList(name.value)">
+        <i class="material-icons">add</i>
+        Add
+      </button>
     </div>
-    <p [hidden]="count">{{list.length}} items left</p>
+    <br><br>
+    <div id="list" [hidden]="count">
+      <div  *ngFor="let item of list" class="taskList" (mouseover)="hideElement = false"(mouseleave)="hideElement = true">
+          <input type="checkbox" id="checkbox"/>
+          {{item.task}}
+          <button id="remove" (click)="removeTask(item.id)" [hidden]="hideElement">
+            <i class="material-icons">close</i>
+          </button>
+    </div>
+    <div class="footer" >
+      <br>
+      <p  id="counter">{{list.length}} items left</p>
+      <button id="all">All</button>
+    </div>
+    
   </div>
   </body>
 </html>
