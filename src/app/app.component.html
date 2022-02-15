@@ -4,8 +4,7 @@
     <h1 class="title">Basic ToDo List</h1>
     </section>
     <div class="box">
-      <h2 class="addTask">Add task</h2>
-      <br>
+      <h2 class="newTask">New tasks</h2>
       <input type="text" id="todo" placeholder="what needs to be done?" (keyup.enter)="getList(name.value)"  #name/>
       <button class="button" (click)="getList(name.value)">
         <i class="material-icons">add</i>
