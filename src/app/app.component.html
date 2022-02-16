@@ -5,7 +5,9 @@
     </section>
     <div class="box">
       <h2 class="newTask">New tasks</h2>
-      <input type="text" id="todo" placeholder="what needs to be done?" (keyup.enter)="getList(name.value)"  #name/>
+      <form>
+      <input type="text" id="todo" placeholder="what needs to be done?" (keyup.enter)="getList(name.value)" #name>
+    </form>
       <button class="button" (click)="getList(name.value)">
         <i class="material-icons">add</i>
         Add
@@ -14,8 +16,10 @@
     <br><br>
     <div id="list" [hidden]="count">
       <div  *ngFor="let item of list" class="taskList" (mouseover)="hideElement = false"(mouseleave)="hideElement = true">
-          <input type="checkbox" id="checkbox"/>
-          {{item.task}}
+          <label>
+            <input type="checkbox" id="checkbox" [(ngModel)]="item.deleted">
+          </label>
+          <p id="task" [ngClass]="{strike: item.deleted}">{{item.task}}</p>
           <button id="remove" (click)="removeTask(item.id)" [hidden]="hideElement">
             <i class="material-icons">close</i>
           </button>
