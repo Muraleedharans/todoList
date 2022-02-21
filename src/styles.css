@@ -93,13 +93,16 @@ input:focus {
     display:inline-block;
     margin-right:10px;
 }
-#all{
+#all,#active,#completed{
     display:inline-block;
     border: none;
     background-color: inherit;
     padding: 14px 28px;
     font-size: 16px;
     cursor: pointer;
+}
+#all:focus,#active:focus,#completed:focus{
+    outline: 1px solid red;;
 }
 #remove{
     float: right;

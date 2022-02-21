@@ -10,7 +10,7 @@
             type="checkbox"
             [(ngModel)]="parentSelector"
             [value]="-1"
-            (change)="onChangeFood($event)"
+            (change)="onChangeAll($event)"
             #cbox
           />
       <input type="text" id="todo" placeholder="what needs to be done?" (keyup.enter)="getList(name.value)" #name>
@@ -21,25 +21,26 @@
     </div>
     <br><br>
     <div id="list" [hidden]="count">
-      <div  *ngFor="let item of list" class="taskList" (mouseover)="hideElement = false"(mouseleave)="hideElement = true">
+      <div  *ngFor="let item of showList" class="taskList" (mouseover)="hideElement = false"(mouseleave)="hideElement = true">
           <label>
             <input id="checkbox" class="form-check-input"
-            [(ngModel)]="item.deleted"
             type="checkbox"
             [value]="item.id"
             [checked]="item.select"
-            (change)="onChangeFood($event)"
+            (change)="onChangeAll($event)"
           />
           </label>
-          <p id="task" [ngClass]="{strike: item.deleted}">{{item.task}}</p>
+          <p id="task" [ngClass]="{strike: item.select}">{{item.task}}</p>
           <button id="remove" (click)="removeTask(item.id)" [hidden]="hideElement">
             <i class="material-icons">close</i>
           </button>
     </div>
     <div class="footer" >
       <br>
-      <p  id="counter">{{list.length}} items left</p>
-      <button id="all">All</button>
+      <p  id="counter">{{showList.length}} items left</p>
+      <button id="all" (click)="showAll()">All</button>
+      <button id="active" (click)="showActive()">Active</button>
+      <button id="completed" (click)="showCompleted()">Completed</button>
     </div>
     
   </div>

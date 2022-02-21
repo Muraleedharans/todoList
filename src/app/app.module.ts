@@ -4,14 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ActiveTaskComponent } from './active-task/active-task.component';
-import { CompletedComponent } from './completed/completed.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ActiveTaskComponent,
-    CompletedComponent
   ],
   imports: [
     BrowserModule,
